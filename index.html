@@ -1,81 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faisal Naseer | Video Editor & AI Creator</title>
+
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
     body{background:#050816;color:white;overflow-x:hidden}
     a{text-decoration:none;color:inherit}
+
     .bg{
       position:fixed;inset:0;z-index:-1;
-      background:radial-gradient(circle at top left,#7b2cff55,transparent 35%),
-      radial-gradient(circle at bottom right,#00d4ff55,transparent 35%),
-      linear-gradient(135deg,#050816,#0b1026,#10051f);
-      animation:bgMove 8s infinite alternate;
+      background:
+      radial-gradient(circle at 10% 20%,#7b2cff66,transparent 30%),
+      radial-gradient(circle at 90% 70%,#00d4ff55,transparent 30%),
+      linear-gradient(135deg,#030510,#07112d,#12051f);
+      animation:bgMove 9s infinite alternate;
     }
-    @keyframes bgMove{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(25deg)}}
+    @keyframes bgMove{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(30deg)}}
+
     header{
-      padding:25px 8%;display:flex;justify-content:space-between;align-items:center;
-      position:sticky;top:0;background:#050816cc;backdrop-filter:blur(12px);z-index:10
+      padding:22px 8%;display:flex;justify-content:space-between;align-items:center;
+      position:sticky;top:0;background:#050816cc;backdrop-filter:blur(14px);z-index:10;
+      border-bottom:1px solid #1d2a55;
     }
-    .logo{font-size:24px;font-weight:800;background:linear-gradient(90deg,#00d4ff,#a855f7);-webkit-background-clip:text;color:transparent}
-    nav a{margin-left:25px;color:#cfd3ff;font-weight:600}
+    .logo{font-size:24px;font-weight:900;background:linear-gradient(90deg,#00d4ff,#a855f7);-webkit-background-clip:text;color:transparent}
+    nav a{margin-left:24px;color:#cfd3ff;font-weight:700}
     nav a:hover{color:#00d4ff}
-    .hero{min-height:90vh;display:flex;align-items:center;justify-content:space-between;padding:70px 8%;gap:50px}
-    .hero-text{max-width:650px}
-    .tag{color:#00d4ff;font-weight:700;letter-spacing:2px;margin-bottom:15px}
-    h1{font-size:64px;line-height:1.05;margin-bottom:18px}
-    h1 span{background:linear-gradient(90deg,#00d4ff,#a855f7,#ff4ecd);-webkit-background-clip:text;color:transparent}
-    .hero p{font-size:20px;color:#cfd3ff;line-height:1.6;margin-bottom:30px}
-    .buttons a{
-      display:inline-block;margin:8px;padding:15px 24px;border-radius:40px;font-weight:800;
-      background:linear-gradient(90deg,#00d4ff,#7b2cff);box-shadow:0 0 25px #7b2cff88
+
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:space-between;
+      padding:70px 8%;gap:80px;
     }
+    .hero-text{max-width:680px}
+    .tag{color:#00d4ff;font-weight:800;letter-spacing:2px;margin-bottom:15px}
+    h1{font-size:66px;line-height:1.05;margin-bottom:18px}
+    h1 span{background:linear-gradient(90deg,#00d4ff,#a855f7,#ff4ecd);-webkit-background-clip:text;color:transparent}
+    .hero p{font-size:20px;color:#cfd3ff;line-height:1.7;margin-bottom:28px}
+
+    .buttons a{
+      display:inline-block;margin:8px;padding:15px 25px;border-radius:40px;font-weight:900;
+      background:linear-gradient(90deg,#00d4ff,#7b2cff);
+      box-shadow:0 0 25px #7b2cff88;transition:.3s;
+    }
+    .buttons a:hover{transform:translateY(-4px);box-shadow:0 0 40px #00d4ff88}
     .buttons a.secondary{background:#111832;border:1px solid #3b4a88}
+
     .photo{
-      width:310px;height:310px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;
-      background:linear-gradient(135deg,#0d1638,#16092b);border:3px solid #7b2cff;
-      box-shadow:0 0 60px #7b2cff99;animation:float 3s infinite ease-in-out;color:#cfd3ff;font-size:20px;font-weight:700
+      position:relative;display:flex;justify-content:center;align-items:center;min-height:500px;
+    }
+    .photo::before{
+      content:'';position:absolute;width:420px;height:420px;border-radius:50%;
+      background:radial-gradient(circle,#00d4ff,#7b2cff,#ff00ff);
+      filter:blur(90px);opacity:.75;animation:pulse 4s ease-in-out infinite;z-index:0;
+    }
+    .photo img{
+      position:relative;width:500px;max-width:100%;z-index:2;
+      animation:float 4s ease-in-out infinite;
+      filter:drop-shadow(0 0 40px rgba(123,44,255,.6));
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
     section{padding:80px 8%}
     .section-title{text-align:center;font-size:42px;margin-bottom:45px}
     .section-title span{color:#00d4ff}
-    .stats,.services,.badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+
+    .stats,.services,.badges,.work-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;
+    }
     .card{
-      background:#0d1430;border:1px solid #27376e;border-radius:24px;padding:30px;
-      box-shadow:0 0 25px #0008;transition:.3s
+      background:linear-gradient(135deg,#0d1430,#080d22);
+      border:1px solid #27376e;border-radius:24px;padding:30px;
+      box-shadow:0 0 25px #0008;transition:.3s;
     }
     .card:hover{transform:translateY(-10px);border-color:#00d4ff;box-shadow:0 0 35px #00d4ff44}
-    .card h3{font-size:24px;margin-bottom:12px;color:#fff}
+    .card h3{font-size:23px;margin-bottom:12px;color:#fff}
     .card p{color:#cfd3ff;line-height:1.6}
+
     .stat{text-align:center}
-    .stat h2{font-size:42px;color:#00d4ff}
-    .badge{
-      text-align:center;background:linear-gradient(135deg,#0d1430,#140824);border:1px solid #7b2cff
+    .stat h2{font-size:38px;color:#00d4ff;margin-bottom:8px}
+
+    .badge{text-align:center;border-color:#7b2cff}
+    .logo-text{
+      font-size:34px;font-weight:900;margin-bottom:15px;
+      background:linear-gradient(90deg,#00d4ff,#a855f7);
+      -webkit-background-clip:text;color:transparent;
     }
-    .badge .icon{font-size:42px;margin-bottom:12px}
+
+    .work-card{
+      min-height:190px;display:flex;flex-direction:column;justify-content:end;
+      background:
+      linear-gradient(180deg,transparent,#050816),
+      linear-gradient(135deg,#162052,#25083d);
+    }
+    .work-card h3{color:#00d4ff}
+
     .portfolio{text-align:center}
     .portfolio-box{
-      max-width:800px;margin:auto;background:#0d1430;border:1px solid #27376e;border-radius:24px;padding:40px
+      max-width:850px;margin:auto;background:#0d1430;border:1px solid #27376e;
+      border-radius:28px;padding:45px;box-shadow:0 0 40px #0009;
     }
-    .portfolio-box p{color:#cfd3ff;margin-bottom:25px;font-size:18px}
+    .portfolio-box p{color:#cfd3ff;margin-bottom:25px;font-size:18px;line-height:1.6}
+
     .contact{text-align:center}
+    .contact p{color:#cfd3ff;font-size:18px;margin-bottom:20px}
     .contact a{
       display:inline-block;margin:10px;padding:15px 25px;border-radius:40px;
-      background:linear-gradient(90deg,#00d4ff,#a855f7);font-weight:800
+      background:linear-gradient(90deg,#00d4ff,#a855f7);font-weight:900;
+      box-shadow:0 0 25px #7b2cff77;
     }
-    footer{text-align:center;padding:30px;color:#8890c7;background:#030510}
-    @media(max-width:850px){
-      .hero{flex-direction:column;text-align:center}
-      h1{font-size:42px}
+
+    footer{text-align:center;padding:30px;color:#8890c7;background:#030510;border-top:1px solid #1d2a55}
+
+    @media(max-width:900px){
+      .hero{flex-direction:column;text-align:center;padding-top:60px}
+      h1{font-size:43px}
       nav{display:none}
-      .photo{width:240px;height:240px}
+      .photo{min-height:360px}
+      .photo img{width:360px}
+      .photo::before{width:300px;height:300px}
     }
   </style>
 </head>
+
 <body>
   <div class="bg"></div>
 
@@ -83,6 +132,7 @@
     <div class="logo">Faisal Naseer</div>
     <nav>
       <a href="#services">Services</a>
+      <a href="#work">Work</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -93,8 +143,8 @@
       <div class="tag">VIDEO EDITOR • MOTION DESIGNER • AI CREATOR</div>
       <h1>Hi, I’m <span>Faisal Naseer</span></h1>
       <p>
-        I help creators, brands, and businesses grow with high-retention YouTube videos,
-        Shorts, Reels, documentaries, bodycam edits, motion graphics, and AI-powered content.
+        I create high-retention YouTube videos, Shorts, Reels, documentaries, bodycam edits,
+        motion graphics, and AI-powered content for creators, brands, and businesses.
       </p>
       <div class="buttons">
         <a href="https://vimeo.com/showcase/11270539?share=copy" target="_blank">View Portfolio</a>
@@ -103,7 +153,7 @@
     </div>
 
     <div class="photo">
-      Your Photo<br>Coming Soon
+      <img src="Screenshot_2026-06-10_173039-removebg-preview.png" alt="Faisal Naseer">
     </div>
   </section>
 
@@ -113,26 +163,27 @@
       <div class="card stat"><h2>7+</h2><p>Years Experience</p></div>
       <div class="card stat"><h2>Top Rated</h2><p>Upwork Freelancer</p></div>
       <div class="card stat"><h2>Level 1</h2><p>Fiverr Seller</p></div>
+      <div class="card stat"><h2>Fast</h2><p>Urgent Delivery Available</p></div>
     </div>
   </section>
 
   <section>
-    <h2 class="section-title">Freelance <span>Platforms</span></h2>
+    <h2 class="section-title">Trusted <span>Platforms</span></h2>
     <div class="badges">
       <div class="card badge">
-        <div class="icon">🟢</div>
-        <h3>Upwork</h3>
-        <p>Top Rated Video Editor available for long-term freelance projects.</p>
+        <div class="logo-text">Upwork</div>
+        <h3>Top Rated Freelancer</h3>
+        <p>Available for long-term and project-based video editing work.</p>
       </div>
       <div class="card badge">
-        <div class="icon">🟢</div>
-        <h3>Fiverr</h3>
-        <p>Level 1 Seller offering professional video editing and creative services.</p>
+        <div class="logo-text">Fiverr</div>
+        <h3>Level 1 Seller</h3>
+        <p>Professional editing services for creators, brands, and businesses.</p>
       </div>
       <div class="card badge">
-        <div class="icon">🎬</div>
-        <h3>Vimeo Portfolio</h3>
-        <p>Selected video editing, motion graphics, and social media projects.</p>
+        <div class="logo-text">Vimeo</div>
+        <h3>Portfolio Showcase</h3>
+        <p>Selected work including YouTube, social media, and motion projects.</p>
       </div>
     </div>
   </section>
@@ -140,19 +191,32 @@
   <section id="services">
     <h2 class="section-title">My <span>Services</span></h2>
     <div class="services">
-      <div class="card"><h3>YouTube Editing</h3><p>Long-form videos, documentaries, cash cow videos, talking-head edits, and automation content.</p></div>
-      <div class="card"><h3>Short-Form Content</h3><p>Reels, TikToks, YouTube Shorts, captions, hooks, transitions, and high-retention edits.</p></div>
-      <div class="card"><h3>Motion Graphics</h3><p>Clean animated titles, lower thirds, social media graphics, and modern visual elements.</p></div>
-      <div class="card"><h3>AI Video Creation</h3><p>AI visuals, AI storytelling, image-to-video concepts, and creative AI-powered video workflows.</p></div>
-      <div class="card"><h3>Bodycam Editing</h3><p>Crime/bodycam videos with suspenseful pacing, natural audio, voiceover inserts, and case flow.</p></div>
+      <div class="card"><h3>YouTube Editing</h3><p>Long-form videos, documentaries, faceless content, talking-head edits, and YouTube automation.</p></div>
+      <div class="card"><h3>Short-Form Content</h3><p>Reels, TikToks, YouTube Shorts, captions, hooks, transitions, and retention-focused editing.</p></div>
+      <div class="card"><h3>Motion Graphics</h3><p>Animated titles, lower thirds, clean graphics, social media visuals, and modern motion design.</p></div>
+      <div class="card"><h3>AI Video Creation</h3><p>AI visuals, image-to-video concepts, storytelling, creative effects, and AI-assisted workflows.</p></div>
+      <div class="card"><h3>Bodycam Editing</h3><p>Crime/bodycam videos with suspenseful pacing, natural audio, VO inserts, and strong story flow.</p></div>
       <div class="card"><h3>Social Media Content</h3><p>Content for brands, businesses, coaches, creators, real estate, restaurants, and e-commerce.</p></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 class="section-title">Featured <span>Work Types</span></h2>
+    <div class="work-grid">
+      <div class="card work-card"><h3>Bodycam Videos</h3><p>Suspenseful crime/story editing.</p></div>
+      <div class="card work-card"><h3>YouTube Automation</h3><p>Faceless videos with strong pacing.</p></div>
+      <div class="card work-card"><h3>Shorts & Reels</h3><p>Fast hooks and engaging captions.</p></div>
+      <div class="card work-card"><h3>AI Videos</h3><p>Creative AI visuals and concepts.</p></div>
     </div>
   </section>
 
   <section id="portfolio" class="portfolio">
     <h2 class="section-title">My <span>Portfolio</span></h2>
     <div class="portfolio-box">
-      <p>Watch my selected video editing and creative work on Vimeo.</p>
+      <p>
+        Watch my selected video editing, motion graphics, and social media content work
+        through my Vimeo portfolio showcase.
+      </p>
       <div class="buttons">
         <a href="https://vimeo.com/showcase/11270539?share=copy" target="_blank">Open Vimeo Portfolio</a>
       </div>
@@ -161,9 +225,7 @@
 
   <section id="contact" class="contact">
     <h2 class="section-title">Let’s <span>Work Together</span></h2>
-    <p style="color:#cfd3ff;font-size:18px;margin-bottom:20px;">
-      Available for freelance projects, long-term collaborations, and urgent video editing work.
-    </p>
+    <p>Available for freelance projects, long-term collaborations, and urgent video editing work.</p>
     <a href="mailto:fasial.naseer3455@gmail.com">Email Me</a>
     <a href="https://wa.me/923180834358" target="_blank">WhatsApp Me</a>
   </section>
