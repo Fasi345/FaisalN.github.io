@@ -67,9 +67,10 @@
     .section-title{text-align:center;font-size:42px;margin-bottom:45px}
     .section-title span{color:#00d4ff}
 
-    .stats,.services,.badges,.work-grid{
+    .stats,.services,.platforms,.work-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;
     }
+
     .card{
       background:linear-gradient(135deg,#0d1430,#080d22);
       border:1px solid #27376e;border-radius:24px;padding:30px;
@@ -82,11 +83,54 @@
     .stat{text-align:center}
     .stat h2{font-size:38px;color:#00d4ff;margin-bottom:8px}
 
-    .badge{text-align:center;border-color:#7b2cff}
-    .logo-text{
-      font-size:34px;font-weight:900;margin-bottom:15px;
-      background:linear-gradient(90deg,#00d4ff,#a855f7);
-      -webkit-background-clip:text;color:transparent;
+    .platform-card{
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      min-height:240px;
+    }
+    .platform-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:linear-gradient(120deg,#00d4ff,#7b2cff,#ff4ecd,#00d4ff);
+      z-index:0;
+      opacity:.25;
+      transition:.3s;
+    }
+    .platform-card:hover::before{opacity:.55}
+    .platform-card>*{position:relative;z-index:1}
+
+    .brand-logo{
+      width:85px;
+      height:85px;
+      margin:0 auto 20px;
+      border-radius:24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      font-weight:900;
+      box-shadow:0 0 35px #0009;
+      transition:.3s;
+    }
+    .platform-card:hover .brand-logo{transform:scale(1.1) rotate(-3deg)}
+
+    .upwork-logo{background:#14a800;color:white}
+    .fiverr-logo{background:#1dbf73;color:white}
+    .vimeo-logo{background:#1ab7ea;color:white}
+    .gmail-logo{background:linear-gradient(135deg,#ea4335,#fbbc05,#34a853,#4285f4);color:white}
+    .whatsapp-logo{background:#25d366;color:white}
+
+    .platform-card a{
+      display:inline-block;
+      margin-top:18px;
+      padding:10px 18px;
+      border-radius:30px;
+      background:#ffffff12;
+      border:1px solid #ffffff22;
+      color:#fff;
+      font-weight:800;
     }
 
     .work-card{
@@ -131,6 +175,7 @@
   <header>
     <div class="logo">Faisal Naseer</div>
     <nav>
+      <a href="#platforms">Platforms</a>
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#portfolio">Portfolio</a>
@@ -167,24 +212,45 @@
     </div>
   </section>
 
-  <section>
+  <section id="platforms">
     <h2 class="section-title">Trusted <span>Platforms</span></h2>
-    <div class="badges">
-      <div class="card badge">
-        <div class="logo-text">Upwork</div>
-        <h3>Top Rated Freelancer</h3>
-        <p>Available for long-term and project-based video editing work.</p>
+    <div class="platforms">
+
+      <div class="card platform-card">
+        <div class="brand-logo upwork-logo">Up</div>
+        <h3>Upwork</h3>
+        <p>Top Rated freelancer available for long-term and project-based video editing work.</p>
+        <a href="#" target="_blank">Add Upwork Link</a>
       </div>
-      <div class="card badge">
-        <div class="logo-text">Fiverr</div>
-        <h3>Level 1 Seller</h3>
-        <p>Professional editing services for creators, brands, and businesses.</p>
+
+      <div class="card platform-card">
+        <div class="brand-logo fiverr-logo">fi</div>
+        <h3>Fiverr</h3>
+        <p>Level 1 Seller offering professional video editing and creative content services.</p>
+        <a href="#" target="_blank">Add Fiverr Link</a>
       </div>
-      <div class="card badge">
-        <div class="logo-text">Vimeo</div>
-        <h3>Portfolio Showcase</h3>
-        <p>Selected work including YouTube, social media, and motion projects.</p>
+
+      <div class="card platform-card">
+        <div class="brand-logo vimeo-logo">V</div>
+        <h3>Vimeo</h3>
+        <p>Selected video editing, motion graphics, and social media content portfolio.</p>
+        <a href="https://vimeo.com/showcase/11270539?share=copy" target="_blank">View Portfolio</a>
       </div>
+
+      <div class="card platform-card">
+        <div class="brand-logo whatsapp-logo">WA</div>
+        <h3>WhatsApp</h3>
+        <p>Contact me directly for urgent projects, quick edits, and long-term collaborations.</p>
+        <a href="https://wa.me/923180834358" target="_blank">Message Me</a>
+      </div>
+
+      <div class="card platform-card">
+        <div class="brand-logo gmail-logo">@</div>
+        <h3>Email</h3>
+        <p>Send project details, references, scripts, voiceovers, and editing requirements.</p>
+        <a href="mailto:fasial.naseer3455@gmail.com">Email Me</a>
+      </div>
+
     </div>
   </section>
 
