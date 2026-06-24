@@ -448,6 +448,37 @@
       opacity:1;
       transform:translateY(0);
     }
+    .proof-logo{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+}
+
+.proof-text{
+  text-align:center;
+}
+
+.proof-text h2{
+  font-size:28px;
+  margin:0 0 8px 0;
+  white-space:nowrap;
+}
+
+.proof-text p{
+  margin:0;
+  color:#ff9aa3;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.badge{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  flex-shrink:0;
+  margin:0;
+}
 .badge{
   width:65px;
   height:65px;
@@ -597,18 +628,21 @@
       <p>CLIENTS</p>
     </div>
 
-    <div class="proof-item">
-      <h2>TOP RATED</h2>
-      <img src="upwork-badge1.png" class="badge" alt="Upwork">
-      <p>UPWORK</p>
-    </div>
+   <div class="proof-item proof-logo">
+  <div class="proof-text">
+    <h2>TOP RATED</h2>
+    <p>UPWORK</p>
+  </div>
+  <img src="upwork-badge1.png" class="badge" alt="Upwork">
+</div>
 
-    <div class="proof-item">
-      <h2>LEVEL 1</h2>
-      <img src="fiverr-badge1.png" class="badge" alt="Fiverr">
-      <p>FIVERR</p>
-    </div>
-
+<div class="proof-item proof-logo">
+  <div class="proof-text">
+    <h2>LEVEL 1</h2>
+    <p>FIVERR</p>
+  </div>
+  <img src="fiverr-badge1.png" class="badge" alt="Fiverr">
+</div>
   </div>
 </div>
       
