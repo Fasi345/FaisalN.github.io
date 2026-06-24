@@ -729,16 +729,16 @@ box-shadow:0 0 40px rgba(229,9,20,.55);
     <div class="proof reveal">
   <div class="proof-wrap">
 
-   <div class="proof-item proof-logo">
+  <div class="proof-item proof-logo">
   <div class="proof-text">
-    <h2 id="yearsCounter">7+</h2>
+    <h2 id="yearsCounter">0</h2>
     <p>YEARS EXPERIENCE</p>
   </div>
 </div>
 
 <div class="proof-item proof-logo">
   <div class="proof-text">
-    <h2 id="clientsCounter">100+</h2>
+    <h2 id="clientsCounter">0</h2>
     <p>CLIENTS</p>
   </div>
 </div>
@@ -940,6 +940,61 @@ Email Me
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+    // Counter Animation
+let countersStarted = false;
+
+function animateCounters() {
+
+  if (countersStarted) return;
+  countersStarted = true;
+
+  const years = document.getElementById("yearsCounter");
+  const clients = document.getElementById("clientsCounter");
+
+  let yearsValue = 0;
+  let clientsValue = 0;
+
+  const yearsInterval = setInterval(() => {
+
+    yearsValue++;
+    years.textContent = yearsValue + "+";
+
+    if (yearsValue >= 7) {
+      clearInterval(yearsInterval);
+    }
+
+  }, 180);
+
+  const clientsInterval = setInterval(() => {
+
+    clientsValue++;
+    clients.textContent = clientsValue + "+";
+
+    if (clientsValue >= 100) {
+      clearInterval(clientsInterval);
+    }
+
+  }, 20);
+
+}
+
+const proofSection = document.querySelector(".proof");
+
+const counterObserver = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if (entry.isIntersecting) {
+      animateCounters();
+    }
+
+  });
+
+}, {
+  threshold: 0.4
+});
+
+counterObserver.observe(proofSection);
   </script>
 </body>
 </html>
