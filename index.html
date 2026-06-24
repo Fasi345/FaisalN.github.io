@@ -448,7 +448,12 @@
       opacity:1;
       transform:translateY(0);
     }
-
+.badge{
+  width:120px;
+  max-width:90%;
+  margin-bottom:12px;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.15));
+}
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(28px)}
       to{opacity:1;transform:translateY(0)}
@@ -576,10 +581,14 @@
           <p>CLIENTS</p>
         </div>
         <div class="proof-item">
-          <h2>TOP RATED</h2>
-          <p>UPWORK</p>
-        </div>
-        <div class="proof-item">
+  <img src="upwork-badge.png" class="badge">
+  <p>UPWORK</p>
+</div>
+
+<div class="proof-item">
+  <img src="fiverr-badge.png" class="badge">
+  <p>FIVERR</p>
+</div>
           <h2>LEVEL 1</h2>
           <p>FIVERR</p>
         </div>
