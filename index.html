@@ -449,12 +449,24 @@
       transform:translateY(0);
     }
 .badge{
-  width:80px;
-  height:80px;
+  width:65px;
+  height:65px;
   object-fit:contain;
   display:block;
-  margin:0 auto 12px;
-  filter:drop-shadow(0 0 12px rgba(255,255,255,.15));
+  margin:12px auto;
+}
+
+.proof-item h2{
+  font-size:38px;
+  color:#fff;
+  margin-bottom:8px;
+}
+
+.proof-item p{
+  color:#ff9aa3;
+  font-weight:900;
+  letter-spacing:1px;
+  font-size:13px;
 }
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(28px)}
@@ -573,29 +585,33 @@
     </section>
 
     <div class="proof reveal">
-      <div class="proof-wrap">
-        <div class="proof-item">
-          <h2>7+</h2>
-          <p>YEARS EXPERIENCE</p>
-        </div>
-        <div class="proof-item">
-          <h2>100+</h2>
-          <p>CLIENTS</p>
-        </div>
-       <div class="proof-item">
-  <img src="upwork-badge1.png" class="badge" alt="Upwork Top Rated">
-  <p>UPWORK</p>
-</div>
+  <div class="proof-wrap">
 
-<div class="proof-item">
-  <img src="fiverr-badge1.png" class="badge" alt="Fiverr Level 1">
-  <p>FIVERR</p>
-</div>
-          <h2>LEVEL 1</h2>
-          <p>FIVERR</p>
-        </div>
-      </div>
+    <div class="proof-item">
+      <h2 id="yearsCounter">7+</h2>
+      <p>YEARS EXPERIENCE</p>
     </div>
+
+    <div class="proof-item">
+      <h2 id="clientsCounter">100+</h2>
+      <p>CLIENTS</p>
+    </div>
+
+    <div class="proof-item">
+      <h2>TOP RATED</h2>
+      <img src="upwork-badge1.png" class="badge" alt="Upwork">
+      <p>UPWORK</p>
+    </div>
+
+    <div class="proof-item">
+      <h2>LEVEL 1</h2>
+      <img src="fiverr-badge1.png" class="badge" alt="Fiverr">
+      <p>FIVERR</p>
+    </div>
+
+  </div>
+</div>
+      
 
     <section id="work" class="reveal">
       <div class="section-head">
